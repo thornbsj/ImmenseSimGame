@@ -1,0 +1,906 @@
+/*<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/lxgw-wenkai-screen-webfont/1.7.0/style.min.css">*/
+/*https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+QingKe+HuangYou&family=ZCOOL+KuaiLe&family=Noto+Serif+SC:wght@500;700&ZCOOL+KuaiLe&family=ZCOOL+XiaoWei&family=Oxanium&family=Share+Tech+Mono&family=ZCOOL+QingKe+HuangYou&family=Noto+Sans+SC&family=Hanyi+Senty+Marshmallow&display=swap*/
+
+::-webkit-scrollbar{
+	   visibility:hidden;
+	   }
+.bot > button:first-of-type{
+	background:transparent;
+	border-color:transparent;
+}
+.bot{
+	background:transparent;
+	border-color:transparent;
+}
+.bot-row{
+	width:100%;
+	   }
+.chosen_npc{
+	border-color:blue;
+	   }
+.plus_button{
+	padding:0;
+	   }
+.minus_button{
+	padding:0;
+	   }
+.built-with{
+	visibility:hidden;
+	   }
+.show-api{
+	visibility:hidden;
+	   }
+.system-info{
+	font-family: LXGW WenKai Screen, serif;
+	background: #f8f9fa; /* 基础浅灰 */
+	background-image: linear-gradient(
+		to bottom right,
+		rgba(248, 249, 250, 0.95),
+		rgba(242, 244, 246, 0.95)
+	);
+	   }
+.trait-warning,.user_prompt{
+	font-family: LXGW WenKai Screen, serif;
+	font-size: 0.85em;
+	line-height: 1.4;
+	color: rgba(115, 90, 75, 0.6);
+	text-shadow: 
+		0 0 2px rgba(0,0,0,0.2),
+		1px 1px 1px rgba(255,255,255,0.3);
+	
+	background: #f8f9fa; /* 基础浅灰 */
+	background-image: linear-gradient(
+		to bottom right,
+		rgba(248, 249, 250, 0.95),
+		rgba(242, 244, 246, 0.95)
+	);
+	}
+.ghost{
+	font-family: 'Ma Shan Zheng', 'ZCOOL QingKe HuangYou', sans-serif;
+	color: rgba(160, 255, 180, 0.85);
+	position: relative;
+	text-shadow: 
+	0 0 8px rgba(100, 255, 150, 0.3),
+	0 0 3px rgba(50, 200, 100, 0.5);
+	background: 
+	linear-gradient(
+		rgba(20, 25, 30, 0.7), 
+		rgba(10, 15, 20, 0.9)
+	);
+	border: 1px solid rgba(100, 150, 100, 0.2);
+	border-radius: 0.3em;
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	padding: 5px 5px;
+	}
+.goblin{
+	font-family: 'Noto Serif SC', 'ZCOOL XiaoWei', serif;
+		font-weight: 700;
+		font-size: 1.1em;
+		
+		 /* 暗红血色文字象征暴力与虚弱 */
+		color: #c45c54; 
+		
+		/* 破损的边框设计 */
+		border: 2px solid #5a3a32;
+		border-image: 
+			linear-gradient(
+				to bottom,
+				#5a3a32 60%,
+				transparent 60% 65%,
+				#5a3a32 65% 80%,
+				transparent 80%
+			) 1;
+		border-bottom: 1px dashed #9e4a40;
+		text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+		/* 地牢铁锈背景 */
+		background: 
+			linear-gradient(135deg, #2a201d 0%, #3a2823 100%), 
+			repeating-linear-gradient(
+				45deg,
+				transparent,
+				transparent 2px,
+				rgba(90, 60, 50, 0.3) 3px,
+				rgba(90, 60, 50, 0.3) 4px
+			);
+		box-shadow: 
+			3px 3px 5px rgba(0,0,0,0.3),
+			-1px -1px 2px rgba(200,150,150,0.1);
+		display: inline-block;
+		padding: 5px 5px;
+	}
+.self_1{
+font-family: 'ZCOOL QingKe HuangYou';
+color: #FF6B7A;
+background: rgba(90,0,20,0.3);
+border: 1px dashed #FF2D4D;
+display: inline-block;
+padding: 5px 5px;
+}
+.self_2{
+	font-family: 'Ma Shan Zheng';
+	color: #8AFFD1;
+	background: rgba(30,60,70,0.4);
+	border: 2px dotted #3EB489;
+	text-shadow: 0 0 5px rgba(138,255,209,0.3);
+	display: inline-block;
+	padding: 5px 5px;
+}
+.self_3{
+	font-family: 'Ma Shan Zheng';
+	color: #FFD700;
+	background: radial-gradient(circle, rgba(255,215,0,0.2), transparent);
+	border-radius: 15px;
+	display: inline-block;
+	padding: 5px 5px;
+}
+.self_4{
+	color: #00FF00;
+	background: repeating-linear-gradient(
+	  45deg,
+	  transparent,
+	  transparent 3px,
+	  rgb(255 231 0) 0px 0px 10px
+	);
+	text-shadow: 0 0 10px #0F0;
+	font-family: 'ZCOOL QingKe HuangYou';
+	display: inline-block;
+	padding: 5px 5px;
+}
+.self_5{
+	font-family: 'ZCOOL XiaoWei';
+	color: #E0D0B0;
+	background: rgba(90, 80, 60, 0.64);
+	border: 1px solid #C0A060;
+	letter-spacing: 0.5em;
+	display: inline-block;
+	padding: 5px 5px;
+}
+.crazy{
+	font-family: 'ZCOOL KuaiLe', cursive;
+	font-weight: 700;
+	font-size: 1.1em;
+	
+	/* 错乱的颜色系统 */
+	color: rgb(255 0 0 / 70%);
+	text-shadow: 
+		1px 1px 0 #8a4d3a, 
+		-1px -1px 0 #3e2723;
+	
+	/* 沙暴背景与灼烧边框 */
+	background-color: #2d221c;
+	border: 3px double #6b4e3d;
+	border-radius: 2px 8px;
+	
+	/* 扭曲的排版效果 */
+	transform: rotate(0.8deg) skewX(-1deg);
+	line-height: 1.8;
+	letter-spacing: 0.12em;
+	word-spacing: 0.4em;
+	display: inline-block;
+	padding: 5px 5px;
+}
+.manager{
+	font-family: 'Noto Serif SC', serif;
+	font-size: 1.1em;
+	
+	/* 错乱的颜色系统 */
+	color: #e0b45c;
+	text-shadow: 
+		1px 1px 0 #8a4d3a, 
+		-1px -1px 0 #3e2723;
+	
+	/* 沙暴背景与灼烧边框 */
+	background-color: #2d221c;
+	border: 3px double #6b4e3d;
+	
+	/* 扭曲的排版效果 */
+	line-height: 1.8;
+	letter-spacing: 0.12em;
+	word-spacing: 0.4em;
+	display: inline-block;
+	padding: 5px 5px;
+}
+.painful{
+	font-family: 'ZCOOL XiaoWei', 'Noto Serif SC', serif;            
+	/* 赎罪之蓝与圣痕金 */
+	color: #9ab2c8;
+	text-shadow: 
+		0 0 2px rgba(255,255,255,0.1),
+		1px 1px 1px rgba(0,0,0,0.3);
+	
+	/* 修道院石墙背景 */
+	background-color: #1a1e24;
+	background-image: 
+		linear-gradient(
+			to right,
+			transparent 95%,
+			rgba(100,80,60,0.1) 100%
+		),
+		repeating-linear-gradient(
+			-5deg,
+			transparent,
+			transparent 3px,
+			rgba(80,100,120,0.1) 4px,
+			rgba(80,100,120,0.1) 5px
+		);
+	
+	/* 锁链缠绕式边框 */
+	border: 2px solid #3d4a5c;
+	border-image: 
+		linear-gradient(
+			to bottom,
+			#3d4a5c 40%,
+			#6b5c4d 40% 60%,
+			#3d4a5c 60%
+		) 1 stretch;
+	display: inline-block;
+	padding: 5px 5px;
+}
+.snake{
+	font-family: 'ZCOOL KuaiLe', 'ZCOOL XiaoWei', 'Noto Serif SC', sans-serif;
+	font-weight: 700;
+
+	/* 战术灰蓝主色系 */
+	color: #2D3540;
+	text-shadow: 
+		0.5px 0.5px 1px rgba(255,255,255,0.3),
+		-1px -1px 1px rgba(0,0,0,0.1);
+
+	/* 浅灰战术背景 + 数据流纹理 */
+	background-color: #E8EDF1;
+	background-image: 
+		repeating-linear-gradient(
+			45deg,
+			transparent,
+			transparent 3px,
+			rgba(90, 142, 168, 0.1) 4px,
+			rgba(90, 142, 168, 0.1) 5px
+		);
+
+	/* 战术装备风格边框 */
+	border: 2px solid #6B7D6D;
+	border-image: 
+		linear-gradient(
+			to bottom,
+			#6B7D6D 50%,
+			#5A8EA8 50%
+		) 1;
+	padding: 5px 5px;
+	/* 现代UI元素 */
+	box-shadow: 
+		2px 2px 5px rgba(0,0,0,0.1),
+		inset 0 0 8px rgba(90,142,168,0.1);
+	display: inline-block;
+}
+.BOSS{
+	font-family: 'Noto Serif SC', 'ZCOOL QingKe HuangYou', serif;
+	/* 圣血与荣光配色 */
+	color: #FFFAF0;
+	background: 
+		radial-gradient(
+			circle at 70% 30%,
+			rgba(255,240,230,0.15),
+			transparent 60%
+		),
+		linear-gradient(
+			15deg,
+			rgba(160,60,60,0.2),
+			rgba(90,40,40,0.3)
+		);
+	
+	display: inline-block;
+	padding: 5px 5px;
+}
+.Walter{
+	font-family: 'Noto Serif SC', 'ZCOOL XiaoWei', serif;
+	/* 维度裂隙色系 */
+	color: #3EB489; /* 剧毒翡翠绿 */
+	background: 
+		linear-gradient(
+			25deg, 
+			rgba(15,25,30,0.95) 0%, 
+			rgba(30,45,50,0.8) 100%
+		),
+		repeating-linear-gradient(
+			60deg,
+			transparent 0px,
+			transparent 15px,
+			rgba(62,180,137,0.05) 16px
+		);
+	
+	/* 破碎维度边框 */
+	border: 1px solid transparent;
+	border-image: 
+		linear-gradient(
+			to bottom right,
+			transparent 20%,
+			#3EB489 25%,
+			transparent 30%,
+			#1A3D47 35%,
+			transparent 40%
+		) 1;
+	box-shadow: 
+		0 0 30px rgba(62,180,137,0.2),
+		inset 0 0 20px rgba(26,61,71,0.5);
+	display: inline-block;
+	padding: 5px 5px;
+}
+.system-info-snake{
+	/* 军用级无衬线字体 */
+	font-family: 'Noto Sans SC', 'ZCOOL QingKe HuangYou', sans-serif;
+	
+	/* 夜视仪绿与战术灰 */
+	color: #C0D8C0;
+	text-shadow: 
+		0 0 3px rgba(32, 64, 32, 0.4),
+		1px 1px 1px rgba(0,0,0,0.3);
+	
+	/* 透明化战术面板 */
+	background: rgba(24, 32, 40, 0.92);
+	backdrop-filter: blur(3px);
+	
+	/* 数据化边框 */
+	border: 1px solid #5A8EA8;
+	border-image: 
+		linear-gradient(
+			to right,
+			#5A8EA8 0%,
+			transparent 30%,
+			#3A4F3D 70%,
+			#5A8EA8 100%
+		) 1;
+	
+	
+	/* 未来界面元素 */
+	box-shadow: 
+		0 0 10px rgba(90, 142, 168, 0.2),
+		inset 0 0 5px rgba(90, 142, 168, 0.3);
+	clip-path: polygon(
+		0 0, 
+		calc(100% - 10px) 0,
+		100% 10px,
+		100% 100%,
+		10px 100%,
+		0 calc(100% - 10px)
+	);
+	display: inline-block;
+	padding: 5px 5px;
+}
+
+@keyframes color-fadein-snake-system {
+	from {
+		color: rgba(0, 0, 0, 0);
+		opacity: 0;
+	}
+	to {
+		color: #C0D8C0;
+		opacity: 1;
+	}
+}
+.fadeIn-system-snake{
+	animation: color-fadein-snake-system 0.7s ease-in forwards;
+	   }
+.drebin{
+	font-family: 'ZCOOL KuaiLe', 'Noto Sans SC', sans-serif;
+                
+	color: #C0A86B;
+	background: 
+		linear-gradient(15deg, 
+			#1A1E24 0%, 
+			#2A2E34 50%,
+			#1A1E24 100%
+		),
+		repeating-linear-gradient(
+			45deg,
+			transparent 0px,
+			transparent 4px,
+			rgba(90, 80, 70, 0.1) 5px
+		);
+	
+	/* 弹药箱式边框 */
+	border: 3px solid #3A4F3D;
+	border-image: 
+		linear-gradient(
+			to bottom,
+			#3A4F3D 50%,
+			#5A6B5D 50%
+		) 1;
+	box-shadow: 
+		5px 5px 10px rgba(0,0,0,0.3),
+		inset 0 0 15px rgba(90, 80, 70, 0.2);
+	display: inline-block;
+	padding: 5px 5px;
+}
+.liquid{
+	/* 矛盾字体组合：刚硬与诡变的对抗 */
+	font-family: 'ZCOOL KuaiLe', 'Ma Shan Zheng', 'Noto Sans SC';
+	font-weight: 700;
+
+	/* 毒液色系与动态渐变 */
+	color: #8A6B8D;
+	background: 
+		repeating-linear-gradient(
+			-15deg,
+			rgba(30,15,40,0.9),
+			rgba(30,15,40,0.9) 10px,
+			rgba(45,20,60,0.7) 11px
+		),
+		linear-gradient(
+			45deg,
+			#1A0F2A 0%,
+			#2D1A3A 50%,
+			#1A0F2A 100%
+		);
+
+	/* 蛇形边框系统 */
+	border: 2px solid;
+	border-image: 
+		linear-gradient(
+			135deg,
+			transparent 15%,
+			#6B3D5A 25%,
+			transparent 35%,
+			#5A3D6B 45%,
+			transparent 55%
+		) 1;
+	box-shadow: 
+		0 0 15px rgba(138,107,141,0.3),
+		inset 0 0 10px rgba(90,60,100,0.5);
+	display: inline-block;
+	padding: 5px 5px;
+}
+.painter{
+	/* 虚实相生的字体组合 */
+	font-family: 'Hanyi Senty Marshmallow', 'Ma Shan Zheng', 'Noto Serif SC';
+	color: #2A3340;
+	background: 
+		linear-gradient(15deg, 
+			rgba(250,245,235,0.9) 30%,
+			rgba(210,205,195,0.7) 80%
+		),
+		repeating-linear-gradient(
+			-25deg,
+			transparent 0px,
+			transparent 40px,
+			rgba(90,100,120,0.05) 41px
+		);
+	
+	/* 画卷破损边缘 */
+	border: 1px solid transparent;
+	border-image: 
+		linear-gradient(
+			to bottom,
+			#9E8A7C 0%,
+			transparent 30%,
+			#6B5D50 70%,
+			transparent 100%
+		) 1;
+	box-shadow: 
+		0 0 20px rgba(90,80,70,0.1),
+		inset 0 0 30px rgba(160,150,140,0.1);
+	display: inline-block;
+	padding: 5px 5px;
+}
+@keyframes color-fadein {
+	from {
+		color: rgba(0, 0, 0, 0);
+		opacity: 0;
+	}
+	to {
+		color: rgba(0, 0, 0, 1);
+		opacity: 1;
+	}
+}
+.fadeIn{
+	animation: color-fadein 0.7s ease-in forwards;
+	   }
+.svelte-f1blhn{
+	   visibility:hidden;
+	   }
+.copy-icon{
+	   display:inline-block;
+	   }
+.copy-icon:hover{
+	   cursor:pointer;
+	   }
+.battle {
+	background: rgba(255, 0, 0, 0.1);
+	border:solid red;
+	display: inline-block;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(5px);
+	align-self: center;
+	width:80%;
+	font-family: 'Courier New', Courier, monospace;
+	color: #ff0000;
+	text-align: center;
+	padding:10px;
+}
+.battle-finished {
+	background: rgba(255, 0, 0, 0.1);
+	border:solid red;
+	display: flex;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(5px);
+	align-self: center;
+	width:80%;
+	font-family: 'Courier New', Courier, monospace;
+	color: #ff0000;
+	text-align: center;
+	padding:10px;
+	overflow-y:auto;
+	height:200px;
+	flex-direction: column;
+}
+.instant_btn:hover{
+	cursor: pointer;        
+}
+#quiet_icon{
+	cursor: pointer;
+}
+.npc_info{
+	text-align:center;
+   }
+.image-frame:hover{
+	cursor: pointer;
+	}
+
+@keyframes painful-color-fadein {
+	from {
+		color: rgba(0, 0, 0, 0);
+		opacity: 0;
+	}
+	to {
+		color: #9ab2c8;
+		opacity: 1;
+	}
+}
+
+.painful-fadeIn{
+	font-family: 'ZCOOL XiaoWei', 'Noto Serif SC', serif;            
+	/* 赎罪之蓝与圣痕金 */
+	color: #9ab2c8;
+	text-shadow: 
+		0 0 2px rgba(255,255,255,0.1),
+		1px 1px 1px rgba(0,0,0,0.3);
+	
+	/* 修道院石墙背景 */
+	background-color: #1a1e24;
+	background-image: 
+		linear-gradient(
+			to right,
+			transparent 95%,
+			rgba(100,80,60,0.1) 100%
+		),
+		repeating-linear-gradient(
+			-5deg,
+			transparent,
+			transparent 3px,
+			rgba(80,100,120,0.1) 4px,
+			rgba(80,100,120,0.1) 5px
+		);
+	
+	/* 锁链缠绕式边框 */
+	border: 2px solid #3d4a5c;
+	border-image: 
+		linear-gradient(
+			to bottom,
+			#3d4a5c 40%,
+			#6b5c4d 40% 60%,
+			#3d4a5c 60%
+		) 1 stretch;
+	display: inline-block;
+	padding: 5px 5px;
+	animation: painful-color-fadein 0.7s ease-in forwards;
+}
+
+@keyframes snake-color-fadein {
+	from {
+		color: rgba(0, 0, 0, 0);
+		opacity: 0;
+	}
+	to {
+		color: #2D3540;
+		opacity: 1;
+	}
+}
+
+.snake-fadeIn{
+	font-family: 'ZCOOL KuaiLe', 'ZCOOL XiaoWei', 'Noto Serif SC', sans-serif;
+	font-weight: 700;
+
+	/* 战术灰蓝主色系 */
+	color: #2D3540;
+	text-shadow: 
+		0.5px 0.5px 1px rgba(255,255,255,0.3),
+		-1px -1px 1px rgba(0,0,0,0.1);
+
+	/* 浅灰战术背景 + 数据流纹理 */
+	background-color: #E8EDF1;
+	background-image: 
+		repeating-linear-gradient(
+			45deg,
+			transparent,
+			transparent 3px,
+			rgba(90, 142, 168, 0.1) 4px,
+			rgba(90, 142, 168, 0.1) 5px
+		);
+
+	/* 战术装备风格边框 */
+	border: 2px solid #6B7D6D;
+	border-image: 
+		linear-gradient(
+			to bottom,
+			#6B7D6D 50%,
+			#5A8EA8 50%
+		) 1;
+	padding: 5px 5px;
+	/* 现代UI元素 */
+	box-shadow: 
+		2px 2px 5px rgba(0,0,0,0.1),
+		inset 0 0 8px rgba(90,142,168,0.1);
+	display: inline-block;
+	animation: snake-color-fadein 0.7s ease-in forwards;
+}
+
+@keyframes BOSS-color-fadein {
+	from {
+		color: rgba(0, 0, 0, 0);
+		opacity: 0;
+	}
+	to {
+		color: #FFFAF0;
+		opacity: 1;
+	}
+}
+
+.BOSS-fadeIn{
+	font-family: 'Noto Serif SC', 'ZCOOL QingKe HuangYou', serif;
+	/* 圣血与荣光配色 */
+	color: #FFFAF0;
+	background: 
+		radial-gradient(
+			circle at 70% 30%,
+			rgba(255,240,230,0.15),
+			transparent 60%
+		),
+		linear-gradient(
+			15deg,
+			rgba(160,60,60,0.2),
+			rgba(90,40,40,0.3)
+		);
+	
+	display: inline-block;
+	padding: 5px 5px;
+	animation: BOSS-color-fadein 0.7s ease-in forwards;
+}
+
+@keyframes liquid-color-fadein {
+	from {
+		color: rgba(0, 0, 0, 0);
+		opacity: 0;
+	}
+	to {
+		color: #8A6B8D;
+		opacity: 1;
+	}
+}
+
+.liquid-fadeIn{
+	/* 矛盾字体组合：刚硬与诡变的对抗 */
+	font-family: 'ZCOOL KuaiLe', 'Ma Shan Zheng', 'Noto Sans SC';
+	font-weight: 700;
+
+	/* 毒液色系与动态渐变 */
+	color: #8A6B8D;
+	background: 
+		repeating-linear-gradient(
+			-15deg,
+			rgba(30,15,40,0.9),
+			rgba(30,15,40,0.9) 10px,
+			rgba(45,20,60,0.7) 11px
+		),
+		linear-gradient(
+			45deg,
+			#1A0F2A 0%,
+			#2D1A3A 50%,
+			#1A0F2A 100%
+		);
+
+	/* 蛇形边框系统 */
+	border: 2px solid;
+	border-image: 
+		linear-gradient(
+			135deg,
+			transparent 15%,
+			#6B3D5A 25%,
+			transparent 35%,
+			#5A3D6B 45%,
+			transparent 55%
+		) 1;
+	box-shadow: 
+		0 0 15px rgba(138,107,141,0.3),
+		inset 0 0 10px rgba(90,60,100,0.5);
+	display: inline-block;
+	padding: 5px 5px;
+	animation: liquid-color-fadein 0.7s ease-in forwards;
+}
+
+
+
+@keyframes goblin-color-fadein {
+	from {
+		color: rgba(0, 0, 0, 0);
+		opacity: 0;
+	}
+	to {
+		color: #c45c54;
+		opacity: 1;
+	}
+}
+
+.goblin-fadeIn{
+	font-family: 'Noto Serif SC', 'ZCOOL XiaoWei', serif;
+	font-weight: 700;
+	font-size: 1.1em;
+	
+		/* 暗红血色文字象征暴力与虚弱 */
+	color: #c45c54; 
+	
+	/* 破损的边框设计 */
+	border: 2px solid #5a3a32;
+	border-image: 
+		linear-gradient(
+			to bottom,
+			#5a3a32 60%,
+			transparent 60% 65%,
+			#5a3a32 65% 80%,
+			transparent 80%
+		) 1;
+	border-bottom: 1px dashed #9e4a40;
+	text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+	/* 地牢铁锈背景 */
+	background: 
+		linear-gradient(135deg, #2a201d 0%, #3a2823 100%), 
+		repeating-linear-gradient(
+			45deg,
+			transparent,
+			transparent 2px,
+			rgba(90, 60, 50, 0.3) 3px,
+			rgba(90, 60, 50, 0.3) 4px
+		);
+	box-shadow: 
+		3px 3px 5px rgba(0,0,0,0.3),
+		-1px -1px 2px rgba(200,150,150,0.1);
+	display: inline-block;
+	padding: 5px 5px;
+	animation: goblin-color-fadein 0.7s ease-in forwards;
+}
+
+@keyframes manager-color-fadein {
+	from {
+		color: rgba(0, 0, 0, 0);
+		opacity: 0;
+	}
+	to {
+		color: #e0b45c;
+		opacity: 1;
+	}
+}
+
+.manager-fadeIn{
+	font-family: 'Noto Serif SC', serif;
+	font-size: 1.1em;
+	
+	/* 错乱的颜色系统 */
+	color: #e0b45c;
+	text-shadow: 
+		1px 1px 0 #8a4d3a, 
+		-1px -1px 0 #3e2723;
+	
+	/* 沙暴背景与灼烧边框 */
+	background-color: #2d221c;
+	border: 3px double #6b4e3d;
+	
+	/* 扭曲的排版效果 */
+	line-height: 1.8;
+	letter-spacing: 0.12em;
+	word-spacing: 0.4em;
+	display: inline-block;
+	padding: 5px 5px;
+	animation: manager-color-fadein 0.7s ease-in forwards;
+}
+
+@keyframes painter-color-fadein {
+	from {
+		color: rgba(0, 0, 0, 0);
+		opacity: 0;
+	}
+	to {
+		color: #2A3340;
+		opacity: 1;
+	}
+}
+
+.painter-fadeIn{
+	/* 虚实相生的字体组合 */
+	font-family: 'Hanyi Senty Marshmallow', 'Ma Shan Zheng', 'Noto Serif SC';
+	color: #2A3340;
+	background: 
+		linear-gradient(15deg, 
+			rgba(250,245,235,0.9) 30%,
+			rgba(210,205,195,0.7) 80%
+		),
+		repeating-linear-gradient(
+			-25deg,
+			transparent 0px,
+			transparent 40px,
+			rgba(90,100,120,0.05) 41px
+		);
+	
+	/* 画卷破损边缘 */
+	border: 1px solid transparent;
+	border-image: 
+		linear-gradient(
+			to bottom,
+			#9E8A7C 0%,
+			transparent 30%,
+			#6B5D50 70%,
+			transparent 100%
+		) 1;
+	box-shadow: 
+		0 0 20px rgba(90,80,70,0.1),
+		inset 0 0 30px rgba(160,150,140,0.1);
+	display: inline-block;
+	padding: 5px 5px;
+	animation: painter-color-fadein 0.7s ease-in forwards;
+}
+
+@keyframes Walter-color-fadein {
+	from {
+		color: rgba(0, 0, 0, 0);
+		opacity: 0;
+	}
+	to {
+		color: #3EB489;
+		opacity: 1;
+	}
+}
+
+.Walter-fadeIn{
+	font-family: 'Noto Serif SC', 'ZCOOL XiaoWei', serif;
+	/* 维度裂隙色系 */
+	color: #3EB489; /* 剧毒翡翠绿 */
+	background: 
+		linear-gradient(
+			25deg, 
+			rgba(15,25,30,0.95) 0%, 
+			rgba(30,45,50,0.8) 100%
+		),
+		repeating-linear-gradient(
+			60deg,
+			transparent 0px,
+			transparent 15px,
+			rgba(62,180,137,0.05) 16px
+		);
+	
+	/* 破碎维度边框 */
+	border: 1px solid transparent;
+	border-image: 
+		linear-gradient(
+			to bottom right,
+			transparent 20%,
+			#3EB489 25%,
+			transparent 30%,
+			#1A3D47 35%,
+			transparent 40%
+		) 1;
+	box-shadow: 
+		0 0 30px rgba(62,180,137,0.2),
+		inset 0 0 20px rgba(26,61,71,0.5);
+	display: inline-block;
+	padding: 5px 5px;
+	animation: Walter-color-fadein 0.7s ease-in forwards;
+}
