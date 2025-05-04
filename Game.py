@@ -283,17 +283,17 @@ class Game:
                 if self.location == "地心国" and '66' in self.object_status.keys() and self.object_status['66']=='2':
                     # 还需更新
                     self.display("你感到一阵头晕目眩，然后听到了无数嘈杂的声音：")
-                    if '1' in self.history_npcs.keys() and self.history_npcs['1'].status["status_ID"]==-1:
+                    if '1' in self.history_npcs.keys() and self.history_npcs['1'].status["status_ID"]==0:
                         self.display("我们无冤无仇，但是我死了你也不肯放过我，现在你也要来陪我了！<br>",style=self.history_npcs['1'].CSS_class)
-                    if '2' in self.history_npcs.keys() and self.history_npcs['2'].status["status_ID"]==-1:
+                    if '2' in self.history_npcs.keys() and self.history_npcs['2'].status["status_ID"]==0:
                         self.display("你这狗娘养的！我做鬼也不会放过你和那个绿衣服的！<br>",style=self.history_npcs['2'].CSS_class)
-                    if '3' in self.history_npcs.keys() and self.history_npcs['3'].status["status_ID"]==-1:
+                    if '3' in self.history_npcs.keys() and self.history_npcs['3'].status["status_ID"]==0:
                         self.display("你和那个穿绿衣服的毁了我的客栈，现在报应要来了！<br>",style=self.history_npcs['3'].CSS_class)
-                    if '4' in self.history_npcs.keys() and self.history_npcs['4'].status["status_ID"]==-1:
+                    if '4' in self.history_npcs.keys() and self.history_npcs['4'].status["status_ID"]==0:
                         self.display("你和那个穿绿衣服的毁了我的客栈，现在报应要来了！<br>",style=self.history_npcs['4'].CSS_class)
-                    if '12' in self.history_npcs.keys() and self.history_npcs['12'].status["status_ID"]==-1:
+                    if '12' in self.history_npcs.keys() and self.history_npcs['12'].status["status_ID"]==0:
                         self.display("我画了许多你最后遭受报应的场景，要看看吗？<br>",style=self.history_npcs['12'].CSS_class)
-                    if '27' in self.history_npcs.keys() and self.history_npcs['27'].status["status_ID"]==-1:
+                    if '27' in self.history_npcs.keys() and self.history_npcs['27'].status["status_ID"]==0:
                         self.display("不必紧张，大限已至。<br>",style="BOSS")
                     self.display("""<span class=\'self_1\'>我们牺牲了，用以换取你的崛起</span><br>\
                                 <span class=\'self_2\'>不要像那个穿着绿衣服的人一样！</span><br>\
@@ -932,13 +932,13 @@ class Game:
             res = completion.choices[0].message.content
         # 公用事件：
         if '2' in self.history_npcs.keys():
-            if self.history_npcs['2'].status["status_ID"]==-1:
+            if self.history_npcs['2'].status["status_ID"]==0:
                 self.display("<p class=\"goblin-fadeIn\">尽管狱卒已经被你杀死，但是牢狱依然时的牢狱，那个关着你的地牢还静静地躺在大漠中，似乎还吸收着过路旅人的灵魂。</p>",mode="LineByLine")
             else:
                 self.display("<p class=\"goblin-fadeIn\">在意识到自己已经永远无法回到族群后，妖怪重振旗鼓，将地牢中似乎是来自另一个世界的机器砸烂并将原本自己看守的地牢用黄沙掩埋。</p><br>\
                              <p class=\"goblin-fadeIn\">自此大漠流传着这样一个传说：在你迷失方向或者被大漠强盗拦住去路时，会有一个断了角的妖股来帮助你。</p>",mode="LineByLine")
         if '4' in self.history_npcs.keys():
-            if self.history_npcs['4'].status["status_ID"]==-1:
+            if self.history_npcs['4'].status["status_ID"]==0:
                 self.display("<p class=\"manager-fadeIn\">大漠中不多的客栈被焚毁了，前来调查的官兵搜索到了另一个世界的机器以及无数人的尸体。</p><br>\
 							<p class=\"manager-fadeIn\">这已经超出了他们的理解，在这桩案件悬而未决多年后，终究和大漠的沙子一样被掩埋、遗忘了。</p>",mode="LineByLine")
             else:
@@ -946,7 +946,7 @@ class Game:
 								<p class=\"manager-fadeIn\">幸而没有达官贵人，不会有人来向他问责。</p><br>\
                              <p class=\"manager-fadeIn\">意外的是，他没有离开自己的客栈，反而将其重新开张。</p><br><p class=\"manager-fadeIn\">他不再贪财、甚至愿意主动帮助那些迷失在大漠中的路人。</p>",mode="LineByLine")
         if '12' in self.history_npcs.keys():
-            if self.history_npcs['12'].status["status_ID"]==-1:
+            if self.history_npcs['12'].status["status_ID"]==0:
                 self.display("<p class=\"painter-fadeIn\">画匠死在了他最后的作品旁。有人说他已经疯了，他最后的作品明显是他疯癫之后看到的景象；但是也有人说，他是看到了“世界的真相”无法接受，将它画成画之后自杀的。</p><br>\
                              <p class=\"painter-fadeIn\">随着时间的推移，人们惊恐地发现，他生前所作过地每一副画，内容都正在慢慢变化。</p>",mode="LineByLine")
             else:
@@ -954,7 +954,7 @@ class Game:
                              <p class=\"painter-fadeIn\">当然，这只是他的一面之词。他朝着九渊地宫的方向旅行，沿途在无人的地方疯狂作画。他知道自己朋友的死不简单，也知道在壁画窟遇到的两个人不平凡。他渴望使用自己的能力发现真相。</p><br>\
                              <p class=\"painter-fadeIn\">随着时间的推移，人们惊讶地发现，他之前所作过地每一副画，内容都正在慢慢变化。</p>",mode="LineByLine")
         if '25' in self.history_npcs.keys():
-            if self.history_npcs['25'].status["status_ID"]==-1:
+            if self.history_npcs['25'].status["status_ID"]==0:
                 self.display("<p class=\"painful-fadeIn\">苦修者倒在了他实现梦想的前一刻。</p><br>\
                              <p class=\"painful-fadeIn\">或许在某个世界里，和他有着相同志向的另一个苦修者成功了。只是没人知道，“所有世界的痛苦”究竟需要多少这样的苦修者才能稀释成功。</p>",mode="LineByLine")
             else:
@@ -962,7 +962,7 @@ class Game:
                              <p class=\"painful-fadeIn\">但是在很小的一段时间内，所有世界的人似乎都觉得自己获得了久违的宁静。</p><br>\
                              <p class=\"painful-fadeIn\">或许在某个世界的某个时间点上，会有什么人意识到苦修者的存在，又会有新的人，将人们的痛苦稀释。</p>",mode="LineByLine")
         if '26' in self.history_npcs.keys():
-            if self.history_npcs['25'].status["status_ID"]==-1:
+            if self.history_npcs['25'].status["status_ID"]==0:
                 self.display("<p class=\"painful-fadeIn\">苦修者倒在了他实现梦想的前一刻。</p><br>\
                              <p class=\"painful-fadeIn\">或许在某个世界里，和他有着相同志向的另一个苦修者成功了。只是没人知道，“所有世界的痛苦”究竟需要多少这样的苦修者才能稀释成功。</p>",mode="LineByLine")
             else:
