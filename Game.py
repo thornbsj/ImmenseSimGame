@@ -20,7 +20,94 @@ def base64_to_PIL(base64_string):
     buffer = io.BytesIO(data)
     res = PIL.Image.open(buffer)
     return res
-bgms = None
+bgms = {'bgm1':44100,
+    'bgm2':32000,
+    'bgm3':32000,
+    'bgm4':44100,
+    'bgm6':48000,
+    'bgm7':44100,
+    'bgm8':44100,
+    'bgm9':32000,
+    'bgm10':32000,
+    'bgm11':44100,
+    'bgm12':44100,
+    'attack':44100,
+    'truth':32000,
+    'critical':44100}
+
+df_prompt_dtype={'location': "str",
+ 'condition': "str",
+ 'prompt': "str",
+ 'deep': "int"}
+
+df_stage_end_dtype = {'location': "str",
+ 'key type': "str",
+ 'key ID': "str",
+ 'key status': "str",
+ 'display text': "str",
+ 'final_end': "float64"}
+
+df_npc_dtype = {'ID': "str",
+ 'name': "str",
+ 'strength': "int",
+ 'sense': "int",
+ 'patient': "float64",
+ 'health': "int",
+ 'prompt': "str",
+ 'anger_condition': "str",
+ 'battle_able': "float64",
+ 'appear': "str",
+ 'disappear': "str",
+ 'disappear_cause': "str",
+ 'disappear_anger': "str",
+ 'necromancy': "str",
+ 'necromancy_dead': "str",
+ 'necromancy_dead_cause': "str",
+ 'init_word': "str",
+ 'presets': "str",
+ 'persuade_key': "str",
+ 'persuade_value': "float64",
+ 'persuation_result': "str",
+ 'persuation_result_txt': "str",
+ 'persuated_prompt': "str",
+ 'CSS_class': "str",
+ 'profile_img': "str",
+ 'ancestor': "str"}
+
+df_locations_dtype = {'location': "str",
+ 'item': "str",
+ 'item_ID': "str",
+ 'npc_ID': "str",
+ 'npc_experience': "float64",
+ 'init': "float64",
+ 'description': "str",
+ 'condition': "str",
+ 'threshold': "float64",
+ 'wordview': "str",
+ 'bgm': "str"}
+
+df_events_dtype = {'ItemID': "str",
+ 'StatusID': "str",
+ 'location': "str",
+ 'item': "str",
+ 'action_keyword': "str",
+ 'condition': "str",
+ 'threshold': "str",
+ 'display': "str",
+ 'add_history': "str",
+ 'necromancy': "str",
+ 'necromancy_result': "str",
+ 'display_fail': "str",
+ 'result': "str",
+ 'result_fail': "str",
+ 'is_breakable': "int",
+ 'break_condition': "str",
+ 'break_threshold': "float64",
+ 'break_fail': "str",
+ 'break_fail_result': "str",
+ 'break': "str",
+ 'break_result': "str"}
+
 profiles = None
 illustrations = None
 css = None
@@ -2250,8 +2337,25 @@ class GameUI(Game):
 
 
 if __name__=="__main__":
-    with open("bgm.pkl","rb") as f:
-        bgms = pickle.load(f)
+    bgms = {'bgm1':44100,
+    'bgm2':32000,
+    'bgm3':32000,
+    'bgm4':44100,
+    'bgm6':48000,
+    'bgm7':44100,
+    'bgm8':44100,
+    'bgm9':32000,
+    'bgm10':32000,
+    'bgm11':44100,
+    'bgm12':44100,
+    'attack':44100,
+    'truth':32000,
+    'critical':44100}
+    for k,v in bgms.items():
+        bgm_numpy = np.load(k+".npy")
+        value = (v,bgm_numpy)
+        bgms[k] = value
+
     with open("profiles.json") as f:
         profiles = json.load(f)
     with open("illustrations.json") as f:
@@ -2272,7 +2376,10 @@ if __name__=="__main__":
         api_key=key,
         base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
     )
-    with open("script.pkl","rb") as f:
-        (df_locations,df_events,df_npc,df_stage_end,df_prompt) = pickle.load(f)
+    df_locations=pd.read_csv("df_locations.csv",dtype=df_locations_dtype)
+    df_events=pd.read_csv("df_events.csv",dtype=df_events_dtype)
+    df_npc=pd.read_csv("df_npc.csv",dtype=df_npc_dtype)
+    df_stage_end=pd.read_csv("df_stage_end.csv",dtype=df_stage_end_dtype)
+    df_prompt=pd.read_csv("df_prompt.csv",dtype=df_prompt_dtype)
 
     game = GameUI(df_locations,df_events,df_npc,df_stage_end,df_prompt)
