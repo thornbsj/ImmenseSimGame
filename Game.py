@@ -2351,8 +2351,20 @@ if __name__=="__main__":
     'attack':44100,
     'truth':32000,
     'critical':44100}
+    
+    def read_bgm(name):
+        files = [i for i in os.listdir("./bgms/") if name+"_" in i]
+        files = [name+f"_{i}.csv" for i in range(len(files))]
+        res = pd.read_csv("./bgms/"+files[0])
+        for i in files[1:]:
+            res = pd.concat([res,pd.read_csv("./bgms/"+i)],axis=0)
+        res = res.reset_index(drop=True)
+        if res.shape[1]==1:
+            return np.array(res,dtype="int16").flatten()
+        return np.array(res,dtype="int16")
+
     for k,v in bgms.items():
-        bgm_numpy = np.load(k+".npy",allow_pickle=False)
+        bgm_numpy = read_bgm(k)
         value = (v,bgm_numpy)
         bgms[k] = value
 
