@@ -2352,7 +2352,7 @@ if __name__=="__main__":
     'truth':32000,
     'critical':44100}
     for k,v in bgms.items():
-        bgm_numpy = np.load(k+".npy")
+        bgm_numpy = np.load(k+".npy",allow_pickle=False)
         value = (v,bgm_numpy)
         bgms[k] = value
 
