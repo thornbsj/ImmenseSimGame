@@ -1405,7 +1405,7 @@ class Character:
             return
         # 图片处理
         if "placeholder_for_img" in s:
-            for i in re.findall("\<placeholder_for_img:(.*?)\>",s):
+            for i in re.findall(r"<placeholder_for_img:(.*?)>",s):
                 print(i)
                 rpl = ""
                 if i in illustrations.keys():
@@ -1869,7 +1869,7 @@ class GameUI(Game):
             return
         # 图片处理
         if "placeholder_for_img" in text:
-            for i in re.findall("\<placeholder_for_img:(.*?)\>",text):
+            for i in re.findall(r"<placeholder_for_img:(.*?)>",text):
                 print(i)
                 rpl = ""
                 if i in illustrations.keys():
